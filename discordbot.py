@@ -1,8 +1,7 @@
 import discord
 from discord.ext import commands
+import botkey
 
-
-TOKEN = 'NjkyMDY1NTUwOTcyNjE2Nzc2.XqxBVw.Zbon1AH4F9_X_4146UW-hSjv-yU'
 client = commands.Bot(command_prefix = '+')
 
 
@@ -45,17 +44,30 @@ async def on_member_join(member):
     await channel.send('{0} Thanks for joining our Valorant Discord server! Please be sure to react with your primary agent in the {1} channel and your most played secondary agent in the {2} channel. Don\'t forget to read over the {3} and {4} channel and respect all members of our server. Welcome to The Valorous Ones!'.format(member.mention, primary.mention, secondary.mention, rules.mention, welcome.mention))
 
 @client.command()
-async def status(ctx):
-    await client.change_presence(activity=discord.Game(name="Version 0.3"))
+async def embed(message):
+    embed = discord.Embed(title="Sorry, that's an admin-only command :(", color=0xe6254e) #, description="Desc"
+    channel = message.channel
+        #embed.add_field(name="Field1", value="hi", inline=False)
+        #embed.add_field(name="Field2", value="hi2", inline=False)
+    await channel.send(embed=embed)
+
+@client.command()
+async def status(message, arg1):
+    if message.author.id == 240269038977024000:
+        await client.change_presence(activity=discord.Game(name="Version {0}".format(arg1)))
+    else:
+        embed = discord.Embed(title="Sorry, that's a developer command :(", color=0xe6254e)
+        channel = message.channel     
+        await channel.send(embed=embed)
 
 @client.command()
 async def twitter(message):
     channel = message.channel
-    await channel.send('https://twitter.com/PlayVALORANT/status/1269003134518521856')
+    await channel.send('https://twitter.com/PlayVALORANT/status/1270885607443582977')
     
 @client.command()
 async def hi(message):
     channel = message.channel
     await channel.send('Hello, {0} :)'.format(message.author.mention))
 
-client.run(TOKEN)
+client.run(botkey.TOKEN)
