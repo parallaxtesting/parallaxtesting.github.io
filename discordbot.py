@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
-import botkey
+import key
+import blacklist
 
 client = commands.Bot(command_prefix = '+')
 
@@ -27,7 +28,7 @@ async def on_message_edit(before, after):
 async def on_message(message):
     if message.author == client.user:
         return
-    if any([keyword in message.content for keyword in ('Fag','fag', 'Faggot', 'faggot', 'Nig', 'nig', 'nigger', 'nigga', 'Retard', 'retard')]):
+    if any([keyword in message.content for keyword in (blacklist.words)]):
         channel = client.get_channel(718943548795387955)
         await channel.send('```css\n[Alert]\n    [{0}]\n    [{1}]\n    [{2}]```'.format(message.channel.name, message.author.name, message.content))
         print("ALERT", message.channel.name, message.author, message.content, sep=': ')
@@ -70,4 +71,26 @@ async def hi(message):
     channel = message.channel
     await channel.send('Hello, {0} :)'.format(message.author.mention))
 
-client.run(botkey.TOKEN)
+@client.command()
+async def insultMatthew(message):
+    if message.author.id == 240269038977024000:
+        embed = discord.Embed(title="STFU DUMB MUTHAFUCKA", color=0xe6254e)
+        channel = message.channel     
+        await channel.send(embed=embed)
+    else:
+        embed = discord.Embed(title="ha ha only Para >:)", color=0xe6254e)
+        channel = message.channel     
+        await channel.send(embed=embed)
+
+@client.command()
+async def tournament(message):
+    embed = discord.Embed(title="Valorous Tournament", description="Our next tournament starts tomorrow at 10:00 AM CST\nWant to join? Type +vtjoin for a server invite.", color=0xe6254e)
+    channel = message.channel
+    await channel.send(embed=embed)
+
+@client.command()
+async def vtjoin(message):
+    channel = message.channel
+    await channel.send('https://discord.gg/N4jq38a')
+
+client.run(key.TOKEN)
