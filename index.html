@@ -1,21 +1,44 @@
-<html>
-  <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<html><head>
+        <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+div.gallery {
+  margin: 5px;
+  float: left;
+  width: 420px;
+  border: 1px solid #1a1a1a
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16
+}
+
+div.title {
+  padding: 15px;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 100
+}</style>
     </head>
-
-    <body>
-        <a href="/button" target="_blank">Useless Button</a><br/>
-        <a href="/recaptcha" target="_blank">Useless ReCaptcha</a><br/>
-        <a href="/loading" target="_blank">Useless Loading</a><br/>
-        <a href="/switch" target="_blank">Useless Switch</a><br/>
-
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-    </body>
-</html>
+    <body style="background-color: #1a1a1a;">
+    
+    <div class="title">Parallax's Projects</div>    
+</body></html>
