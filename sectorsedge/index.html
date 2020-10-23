@@ -1,0 +1,184 @@
+<html>
+    <head>
+            <link rel="stylesheet" href="odometer-theme-default.css"></link>
+            <script>
+                window.odometerOptions = {
+                  duration: 1 * 1000
+                  //,animation: 'count'
+                };
+            </script>
+            <script src="odometer.js"></script>
+            <style>
+              @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
+              div.gallery {
+              margin: 5px;
+              float: left;
+              width: 420px;
+              border: 1px solid #1a1a1a
+              }
+
+              div.gallery:hover {
+              border: 1px solid #777;
+              }
+
+              div.gallery img {
+              width: 100%;
+              height: auto;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              }
+
+              div.desc {
+              padding: 15px;
+              text-align: center;
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+              font-family: 'Roboto Mono', monospace;
+              font-size: 16
+              }
+
+              div.title {
+              padding: 15px;
+              text-align: center;
+              border-radius: 10px;
+              font-family: 'Roboto Mono', monospace;
+              font-size: 60
+              }
+              .button {
+              background-color: #002b36;
+              color: white;
+              padding: 15px;
+              text-align: center;
+              border-radius: 10px;
+              font-family: 'Roboto Mono', monospace;
+              font-size: 25;
+              border: none;
+              background-color: #002b36; /* Green */
+              padding: 16px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              margin: 4px 2px;
+              transition-duration: 0.4s;
+              cursor: pointer;
+              outline-style: none;
+              }
+              .odometer {
+                  font-size: 100px;
+                  background-color: #002b36;
+                  color: white;
+                  padding-right: 10px;
+                  padding-left: 10px;
+                  text-align: center;
+                  border-radius: 10px;
+                  float: left;
+              }
+              .connector {
+                  font-size: 50px;
+                  background-color: #002b36;
+                  color: white;
+                  padding-right: 10px;
+                  padding-left: 10px;
+                  border-radius: 0;
+                  text-align: center;
+                  float: left;
+                  font-family: "Roboto Mono", monospace;
+                  line-height: 2em;
+              }
+              .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner,
+              .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+              -webkit-transition-duration: .5s !important;
+              -moz-transition-duration: .5s !important;
+              -ms-transition-duration: .5s !important;
+              -o-transition-duration: .5s !important;
+              transition-duration: .5s !important
+
+              }
+              .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+              font-family: "Roboto Mono", monospace;
+              line-height: 1em;
+              }
+              .button1 {
+              border: 2px solid #002b36;
+              background-color: #002b36;
+              color: white;
+              transition-duration: 500ms;
+              }
+
+              .button1:hover {
+              background-color: white; 
+              color: black; 
+              transition-duration: 200ms;
+              }
+
+              .button1:active {
+              border: 2px solid #002b36;
+              background-color: #002b36;
+              color: white;
+              transition-duration: 150ms;
+              }
+          </style>
+    </head>
+    <body style="background-color: #1a1a1a; text-align: center">
+        <div class="title" style="background-color: #002b36; color: white;">Sector's Edge Releases in:</div>
+        <div class="title" style="display: flex; flex-direction: row; justify-content: center">
+          <div id="odometer" class="odometer" style="border-top-right-radius: 0; border-bottom-right-radius: 0">0</div>
+          <div class="connector">days</div>
+          <div id="odometer1" class="odometer" style="border-radius: 0;">0</div>
+          <div class="connector">hours</div>
+          <div id="odometer2" class="odometer" style="border-radius: 0;">0</div>
+          <div class="connector">minutes</div>
+          <div id="odometer3" class="odometer" style="border-radius: 0;">0</div>
+          <div class="connector" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px">seconds</div>
+        </div>
+        <script type="text/javascript">
+//            setTimeout(function () {
+//               odometer.innerHTML = 456;
+//            }, 1000);
+        </script>
+
+        <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Oct 30, 2020").getTime();
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+          // Get today's date and time
+          var now = new Date().getTime();
+            
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+            
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+
+
+          odometer.innerHTML = days;
+          odometer1.innerHTML = hours;
+          odometer2.innerHTML = minutes;
+          odometer3.innerHTML = seconds;
+            
+          // If the count down is over, write some text 
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+        </script>
+      
+      <a class="button button1" href="https://vercidium.com/" target="_blank">Vercidium</a>
+      <a class="button button1" href="http://sectorsedge.com/" target="_blank">Sector's Edge</a>
+      <a class="button button1" href="https://www.youtube.com/watch?v=fRzvh8K9zEA" target="_blank">Sector's Edge Trailer</a>
+      <a class="button button1" href="https://discord.gg/adPgTUC" target="_blank">Sector's Edge Discord</a>
+
+      <div class="title" style="font-size: 25; top: 58%; position: relative">This website is not maintained or owned by Vercidium.</div>
+      <div class="title" style="font-size: 15; top: 55%; position: relative"> This is an individual project by Parallax#9522, who developes only the most useless programs of all because he is not smart enough to make things with an actual purpose.</div>
+      </div>
+    </body>
+
+</html>
