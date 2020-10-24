@@ -127,6 +127,30 @@
           </style>
     </head>
     <body style="background-color: #1a1a1a; text-align: center">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+
+        <script>
+          // Your web app's Firebase configuration
+          // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+          var firebaseConfig = {
+            apiKey: "AIzaSyAsgGSj_0Yf8ZvXvvbfc86_vplLnlyzkLs",
+            authDomain: "parallax-ae478.firebaseapp.com",
+            databaseURL: "https://parallax-ae478.firebaseio.com",
+            projectId: "parallax-ae478",
+            storageBucket: "parallax-ae478.appspot.com",
+            messagingSenderId: "529642576024",
+            appId: "1:529642576024:web:59e9cf7646bb22284fd8ed",
+            measurementId: "G-R90CP501WK"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+        </script>
         <div class="title" style="background-color: #002b36; color: white;">Sector's Edge Releases in:</div>
         <div class="title" style="display: flex; flex-direction: row; justify-content: center">
           <div id="odometer" class="odometer" style="border-top-right-radius: 0; border-bottom-right-radius: 0">0</div>
